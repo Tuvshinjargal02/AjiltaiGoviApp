@@ -1,0 +1,42 @@
+// android/app/build.gradle
+
+// local.properties дээс утгууд унших
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withInputStream { localProperties.load(it) }
+}
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+assert flutterRoot != null, "flutter.sdk is not set in local.properties"
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')?.toInteger() ?: 1
+def flutterVersionName = localProperties.getProperty('flutter.versionName') ?: '1.0'
+
+// Android аппын plugin-уудыг нэмнэ
+apply plugin: 'com.android.application'
+
+// **Өмнөх мөр**: apply from: "$flutterRoot/packages/flutter_tools/gradle/app.gradle"
+// **Шинэ мөр**: Flutter SDK–д байгаа зөв gradle script-ийг зааж өгнө.
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        applicationId "com.example.ajiltai_govi" // Төслийн package name–ийг өөрчлөх боломжтой
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode flutterVersionCode
+        versionName flutterVersionName
+    }
+
+    buildTypes {
+        release {
+            // Release build-ийн тохиргоо (энэ хэсгийг өөрийн шаардлагын дагуу засч болно)
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    // Хэрэв нэмэлт сангууд шаардлагатай бол энд зааж болно.
+}

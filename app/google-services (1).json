@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "606196662044",
+    "project_id": "ajiltaigoviapp",
+    "storage_bucket": "ajiltaigoviapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606196662044:android:790d590fdab57a11cf84d9",
+        "android_client_info": {
+          "package_name": "com.example.ajiltai_govi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbNsIDdRa0UMzTLnw1xAVz5pSkYRIq4vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
